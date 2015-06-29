@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+<div align="center">
+	<h1>Please login:</h1>
+	<form name="login_form" action="{% url 'login_act' %}" method="POST">
+		{% csrf_token %}
+		Username: <input name='username' type="text" size="50" placeholder="Username" required data-minlength="3" pattern=".{2,}"> <br>
+		Password: <input name="password" type="password" size="50" placeholder="Password" required data-minlength="3" pattern=".{3,}"> <br>
+		<input type="submit" value="Login" />
+	</form>
+	{% if error_msg %}
+    	<h2 style="color: red"> {{ error_msg }} </h2>
+	{% endif %}
+</div>
+{% endblock %}
