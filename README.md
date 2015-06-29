@@ -1,1 +1,1 @@
-# Підвезу Львів
+# Empty django project template
