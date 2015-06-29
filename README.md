@@ -1,4 +1,6 @@
 # Empty django project template
+After deployment need to execute command `manage.py syncdb`
+and create superuser with admin permissions
 
 # Local work
 To have this project working locally,
