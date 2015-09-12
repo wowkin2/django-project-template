@@ -1,4 +1,6 @@
 # Empty django project template
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/wowkin2/django-project-template)
+
 After deployment need to execute command `manage.py syncdb`
 and create superuser with admin permissions
 
