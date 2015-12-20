@@ -1,0 +1,10 @@
+<html>
+    <head>
+    {% include 'analytics.html' %}
+    <meta http-equiv="refresh" content="1; url={{ url }}" />
+    </head>
+    <body>
+        <div>Відбувається переадресація за посиланням:</div>
+        <a href="{{ url }}">{{ url }}</a>
+    </body>
+</html>

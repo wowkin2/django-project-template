@@ -1,0 +1,116 @@
+<html lang="uk">
+<meta charset="utf-8">
+
+<body style="background: #eee; font-family: Roboto-Regular,Helvetica,Arial,sans-serif; margin: 0; padding: 0;">
+    <table width="100%" height="100%" style="min-width: 348px;" border="0" cellspacing="0" cellpadding="0">
+        <tr height="32px"></tr>
+        <tr align="center">
+            <td width="32px"></td>
+            <td>
+                <table border="0" cellspacing="0" cellpadding="0" style="max-width: 600px;">
+                    <tr height="16"></tr>
+                    <tr>
+                        <td>
+                            <table bgcolor="#D94235" width="100%" border="0" cellspacing="0" cellpadding="0" style="min-width: 332px; max-width: 600px; border: 1px solid #E0E0E0; border-bottom: 0; border-top-left-radius: 3px; border-top-right-radius: 3px;">
+                                <tr>
+                                    <td height="72px" colspan="3"></td>
+                                </tr>
+                                <tr>
+                                    <td width="32px"></td>
+                                    <td style="font-size: 24px; color: #FFFFFF; line-height: 1.25;">Помилка №{{ err_code }}</td>
+                                    <td width="32px"></td>
+                                </tr>
+                                <tr>
+                                    <td height="18px" colspan="3"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table bgcolor="#FAFAFA" width="100%" border="0" cellspacing="0" cellpadding="0" style="min-width: 332px; max-width: 600px; border: 1px solid #F0F0F0; border-bottom: 1px solid #C0C0C0; border-top: 0; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px;">
+                                <tr height="16px">
+                                    <td width="32px" rowspan="3"></td>
+                                    <td></td>
+                                    <td width="32px" rowspan="3"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table style="min-width: 300px;" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td style="font-size: 13px; color: #202020; line-height: 1.5;">Доброго дня,</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 13px; color: #202020; line-height: 1.5;">
+                                                    Щойно ({{ datetime|date:"D d.M.Y H:i" }}) користувач
+                                                    {% if user_fb %}
+                                                    (<a href="https://facebook.com/{{ user_fb }}">лінк</a>)
+                                                    {% endif %}
+                                                    намагався відкрити сторінку і отримав помилку:
+                                                    <table border="0" cellspacing="0" cellpadding="0" style="margin-top: 16px; margin-bottom: 16px;">
+                                                        <tr valign="middle">
+                                                            <td width="16px"></td>
+                                                            <td style="line-height: 1.5;"><span style="color: #202020; font-size: 16px;"><b>URL:</b></span>
+                                                                <span style="">{{ url}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr valign="middle">
+                                                            <td width="16px"></td>
+                                                            <td style="line-height: 1.5;"><span style="color: #202020; font-size: 16px;"><b>Server name:</b></span>
+                                                                <span style="color: #727272; font-size: 13px;">{{ server_name}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr valign="middle">
+                                                            <td width="16px"></td>
+                                                            <td style="line-height: 1.5;"><span style="color: #202020; font-size: 16px;"><b>Текст помилки:</b></span>
+                                                                <span style="color: #727272; font-size: 13px;">{{ err_message}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr valign="middle">
+                                                            <td width="16px"></td>
+                                                            <td style="line-height: 1.5;"><span style="color: #202020; font-size: 16px;"><b>User agent{% if is_bot %} <span style="font-weight: bold; color: #080; ">(bot)</span>{% endif %}:</b></span>
+                                                                <span style="color: #727272; font-size: 13px;">{{ user_agent}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr valign="middle">
+                                                            <td width="16px"></td>
+                                                            <td style="line-height: 1.5;">
+                                                                <span style="color: #202020; font-size: 16px;"><b>Traceback:</b></span>
+                                                                <span style="color: #727272">({{ checksum }})</span>
+                                                                <br><span style="color: #727272; font-size: 13px; font-family: Courier, Arial; overflow: scroll;">{{ traceback}}</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <br>
+                                                    <!--br><a href="#" target="_blank" style="display:inline-block; text-align: center; text-decoration: none; height: 36px; line-height: 36px; padding-left: 8px; padding-right: 8px; min-width: 88px; font-size: 14px; font-weight: 400; color: #ffffff; background-color: #4184F3; border-radius: 2px; border-width: 0px; box-shadow: 0 2px 5px 0 rgba(0,0,0,0.4);">Кнопка</a-->
+                                                </td>
+                                            </tr>
+                                            <tr height="32px"></tr>
+                                            <tr>
+                                                <td style="font-size: 13px; color: #202020; line-height: 1.5;">З повагою,
+                                                    <br>Адміністрація ресурсу</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr height="32px"></tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr height="16"></tr>
+                    <tr>
+                        <td style="max-width: 600px; font-size: 10px; color: #BCBCBC; line-height: 1.5;">
+                            Ми надіслали Вам це службове сповіщення електронної пошти, так як ви підписані на цю розсилку.
+                            <br>
+                            Якщо бажаєте відписатись, зверніться до адміністратора сервісу.
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="32px"></td>
+        </tr>
+        <tr height="32px"></tr>
+    </table>
+</body>
+
+</html>

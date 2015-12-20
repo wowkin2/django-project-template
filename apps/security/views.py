@@ -11,7 +11,7 @@ def view_login_page(request):
     if request.user.is_authenticated():
         return redirect('main')
     else:
-        return render(request, 'login.html')
+        return render(request, 'security/login.html')
 
 
 def handle_login(request):
@@ -21,7 +21,7 @@ def handle_login(request):
     error_msg = None
     if user is not None:
         if user.is_active:
-            request.session.set_expiry(SESSION_EXPIRATION_TIME)  # expire after 6 hours
+            request.session.set_expiry(SESSION_EXPIRATION_TIME)
             login(request, user)
             # Redirect to a success page.
         else:
@@ -33,7 +33,7 @@ def handle_login(request):
 
     if error_msg:
         return render(request,
-                      'login.html',
+                      'security/login.html',
                       {'error_msg': error_msg})
     else:
         return HttpResponseRedirect(reverse('login'))

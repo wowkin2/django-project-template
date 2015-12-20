@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import base64
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -17,8 +18,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# TO BE CHANGED !!!
-SECRET_KEY = '$6#bwy0_qxyz67giy6me903pe!z4zx%5dsscv(@h2!r%z7h!&-'
+# TO BE CHANGED in environ !!!
+SECRET_KEY = base64.decodestring(os.environ.get('SECRET_KEY', ''))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +38,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_js_reverse',
+    'apps.main.templatetags.main_app_filters',
+    'apps.main',
+    'apps.logger',
+    'apps.security'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -47,6 +53,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apps.logger.views.ExceptionLoggingMiddleware',
 )
 
 ROOT_URLCONF = 'webapp.urls'
@@ -86,6 +93,8 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
+
+JS_REVERSE_EXCLUDE_NAMESPACES = ['admin']
 
 LOGIN_URL = '/security/'
 LOGOUT_URL = '/security/logout'
